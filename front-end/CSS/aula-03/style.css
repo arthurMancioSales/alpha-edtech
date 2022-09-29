@@ -1,0 +1,22 @@
+#first {
+  height: 100vh;
+  width: 100%;
+  border: 0.3rem solid crimson;
+}
+
+#second {
+  height: 300px;
+  width: 300px;
+  border: 0.3rem solid blue;
+}
+
+#second > p{
+  padding: 20px;
+}
+
+#third {
+  height: 100%;
+  width: 500px;
+  border: 0.3rem solid green;
+  margin-top: 50px;
+}

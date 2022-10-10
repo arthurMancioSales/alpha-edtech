@@ -1,0 +1,211 @@
+/* ==basic reset and setup== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==defining global variables== */
+:root {
+    --ghost-red-color: #e40403;
+    --ghost-orange-color: #e79703;
+    --ghost-blue-color: #08b1db;
+    --ghost-pink-color: #e093bd;
+    --pack-color: #f6f404;
+}
+
+/* ==basic structure definition== */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main {
+    background-color: black;
+    width: 90vw;
+    min-height: 80vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* ==defining ghost general style== */
+.ghost {
+    height: 125px;
+    width: 100px;
+
+    border-radius: 45% 45% 0 0;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.head {
+    height: 100px;
+    width: 100px;
+    
+    shape-outside: circle();
+    clip-path: circle();
+    
+    
+    display: flex;
+    justify-content: center;
+}
+
+.ghost:hover {
+    background-color: #0800ea;
+}
+
+.ghost:hover .head {
+    background-color: #0800ea;
+}
+
+.ghost:hover .pupil {
+    opacity: 0;
+}
+
+.eye-back {
+    background-color: #ffffff;
+
+    margin: 0 5px;
+    height: 30px;
+    width: 30px;
+
+    float: left;
+    shape-outside: circle();
+    clip-path: circle();
+
+    position: relative;
+    top: 35px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.pupil {
+    background-color: #1114e3;
+
+    margin: 2px;
+    height: 15px;
+    width: 15px;
+
+    float: left;
+    shape-outside: circle();
+    clip-path: circle();
+}
+
+.legs {
+    display: flex;
+    justify-content: center;
+}
+
+.leg {
+    background-color: black;
+
+    height: 25px;
+    width: 50px;
+
+    position: relative;
+    /* bottom: 49px; */
+
+    float: left;
+    shape-outside: polygon( 
+        100% 0,
+        50% 100%,
+        0 0
+    );
+    clip-path: polygon(
+        0 100%,
+        50% 0,
+        100% 100%
+    );
+}
+
+/* ==creating animations== */
+@keyframes opacity-delay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==applying collor to each ghost== */
+.red {
+    background-color: var(--ghost-red-color);
+    animation: opacity-delay 3s linear;
+}
+
+.blue {
+    background-color: var(--ghost-blue-color);
+    animation: opacity-delay 1.5s linear;
+
+}
+
+.orange {
+    background-color: var(--ghost-orange-color);
+    animation: opacity-delay 1.5s linear;
+
+}
+
+.pink {
+    background-color: var(--ghost-pink-color);
+    animation: opacity-delay 3s linear;
+
+}
+
+/* ==packman definition== */
+#pack-body {
+    background-color: var(--pack-color);
+
+    height: 125px;
+    width: 125px;
+
+    float: left;
+    shape-outside: circle();
+    clip-path: circle();
+
+    display: flex;
+    align-items: center;
+}
+
+#pack-mouth {
+    background-color: black;
+
+    width: 125px;
+    height: 60px;
+    
+    float: left;
+    clip-path: polygon(
+        40% 50%,
+        100% 100%,
+        100% 0
+    );
+}
+
+#pack-body:hover #pack-mouth{
+    opacity: 0;
+}
+
+#copyright {
+    font-size: 15px;
+    line-height: 2rem;
+}
+
+
+/* ==responsive design section== */
+@media screen and (max-width: 650px) {
+    main {
+        flex-direction: column;
+    }
+
+    .ghost {
+        margin-top: 50px;
+    }
+}

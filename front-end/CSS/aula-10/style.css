@@ -302,7 +302,7 @@ header div figure {
 #product-lines figure div {
     width: 600px;
 
-    background-image: url(./src/product-gold-background.png);
+    background-image: url(/CSS/aula-09/src/product-gold-background.png);
     background-repeat: no-repeat;
     background-position: 0 50%;
 

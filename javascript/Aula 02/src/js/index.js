@@ -8,24 +8,17 @@ let result = "";
 function biggerNumber() {
 
     // Select both values from the HTML document and assign them to a variable
-    const firstNumber = numbersForm["firstNumber"].valueAsNumber;
-    const secondNumber = numbersForm["secondNumber"].valueAsNumber;
+    const firstNumber = Number(numbersForm["firstNumber"].value);
+    const secondNumber = Number(numbersForm["secondNumber"].value);
 
     // Main logic
-    // Checks if both fields were answered, then finds the biggest number
-    if (typeof firstNumber === "number" && typeof secondNumber === "number") {
-        if (firstNumber > secondNumber) {
-            result = `${firstNumber} é maior que ${secondNumber}`;
-        } else if (secondNumber > firstNumber) {
-            result = `${firstNumber} é menor que ${secondNumber}`;
-        } else {
-            result = `${firstNumber} é igual a ${secondNumber}`;
-        }
-    } 
-    // Returns an error message if one of the fields were empty
-    else {
-        document.getElementById("numbersResult").innerText =
-            "Por favor, insira dois números";
+    // Makes multiple comparisons to find the biggest number
+    if (firstNumber > secondNumber) {
+        result = `${firstNumber} é maior que ${secondNumber}`;
+    } else if (secondNumber > firstNumber) {
+        result = `${firstNumber} é menor que ${secondNumber}`;
+    } else {
+        result = `${firstNumber} é igual a ${secondNumber}`;
     }
 
     // Sets the result on the user screen

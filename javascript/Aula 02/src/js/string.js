@@ -9,25 +9,21 @@ function biggerPhrase() {
 
     // Select both values from the HTML document and assign them to a variable
     const firstString = stringForm["firstString"].value;
+    const firstStringLength = firstString.length
     const secondString = stringForm["secondString"].value;
+    const secondStringLength = secondString.length
+
 
     // Main logic
-    // Checks if both fields were answered, then finds the biggest phrase
-    if (typeof firstString == "string" && typeof secondString == "string") {
-        if (firstString > secondString) {
-            let difference = firstString.length - secondString.length
-            result = `A frase ${firstString} é ${difference} caractere(s) maior que a frase ${secondString}`;
-        } else if (secondString > firstString) {
-            let difference = secondString.length - firstString.length
-            result = `A frase ${firstString} é ${difference} caractere(s) menor que a frase ${secondString}`;
-        } else {
-            result = `A frase ${firstString} é igual a a frase ${secondString}`;
-        }
-    } 
-    // Returns an error message if one of the fields were empty
-    else {
-        document.getElementById("numbersResult").innerText =
-            "Por favor, insira duas frases";
+    // Makes multiple comparisons to find the biggest phrase
+    if (firstStringLength > secondStringLength) {
+        let difference = firstStringLength - secondStringLength
+        result = `A frase ${firstString} é ${difference} caractere(s) maior que a frase ${secondString}`;
+    } else if (secondStringLength > firstStringLength) {
+        let difference = secondStringLength - firstStringLength
+        result = `A frase ${firstString} é ${difference} caractere(s) menor que a frase ${secondString}`;
+    } else {
+        result = `A frase ${firstString} tem o mesmo tamanho que a a frase ${secondString}`;
     }
 
     // Sets the result on the user screen

@@ -1,0 +1,24 @@
+/* ===Main Content Style=== */
+#cards-container .card:nth-child(even) {
+    margin: 1.5rem 0;
+}
+
+#cards-container i {
+    font-size: 7rem;
+    padding-bottom: 1rem;
+}
+/* ===Responsive Design=== */
+@media screen and (min-width: 810px) {
+    /* ===Generic Elemets=== */
+    .card {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        width: auto;
+    }
+
+    /* ===Main Content Style=== */
+    #cards-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,13 @@
+/* ===Main Content Style=== */
+.cards-container i {
+    font-size: 5rem;
+    padding-bottom: 1rem;
+}
+/* ===Responsive Design=== */
+@media screen and (min-width: 810px) {
+    /* ===Main Content Style=== */
+    .cards-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,17 @@
+/* ===Main Content Style=== */
+#productResultDiv {
+    width: 80%;
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+#productResultDiv .text {
+    padding: 1rem 0 0 0;
+}
+
+@media screen and (min-width: 810px) {
+    #productResultDiv {
+        width: 50%;
+        padding: 2rem;
+    }
+}

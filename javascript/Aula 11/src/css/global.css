@@ -1,0 +1,396 @@
+/* ===Basic Setup=== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: var(--title-color);
+    transition: all 700ms ease;
+}
+
+/* ===Variables Declaration=== */
+:root {
+    font-size: 9px;
+
+    --primary-color: #221e2d;
+    --secondary-color: #413956;
+    --tertiary-color: #665a87;
+
+    --title-color: #fff;
+    --text-color: #d0d0d0;
+
+    --main-color: #673be4;
+    --contrast-color: #fff;
+
+    --title-font-size: 2.5rem;
+    --subtitle-font-size: 2rem;
+    --text-font-size: 1.5rem;
+
+    --title-weight: 500;
+    --subtitle-weight: 400;
+    --text-weight: 400;
+}
+
+/* ===Generic Layout Classes=== */
+.flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.flex-reverse-row {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    padding: 2rem 7.5vw;
+    min-height: 70vh;
+}
+
+.mobile-hide {
+    display: none;
+    transition: all 700ms ease;
+}
+
+/* ===Generic Font Classes=== */
+.title {
+    color: var(--title-color);
+    font-size: var(--title-font-size);
+    font-weight: var(--title-weight);
+    transition: all 700ms ease;
+    padding-bottom: 1rem;
+}
+
+.subtitle {
+    color: var(--title-color);
+    font-size: var(--subtitle-font-size);
+    font-weight: var(--subtitle-weight);
+    transition: all 700ms ease;
+}
+
+.text {
+    font-size: var(--text-font-size);
+    font-weight: var(--text-weight);
+    transition: all 700ms ease;
+    text-align: center;
+}
+
+.link {
+    font-size: var(--text-font-size);
+    font-weight: var(--title-weight);
+    border-bottom: 1px solid transparent;
+    transition: all 700ms ease;
+}
+
+.link:hover {
+    border-bottom: 1px solid var(--title-color);
+}
+
+/* ===Generic Element Classes=== */
+.button {
+    background-color: var(--main-color);
+
+    padding: 1rem 3rem;
+    margin: 1.5rem 0 1rem 0;
+
+    text-transform: uppercase;
+
+    border-radius: 1rem;
+    border: none;
+
+    transform: translateY(0);
+    transition: transform 600ms ease, background-color 400ms ease,
+        color 400ms ease;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--contrast-color);
+    color: #221e2d;
+
+    transform: translateY(-1rem);
+}
+
+select option {
+    text-transform: capitalize;
+}
+
+table {
+    width: 85%;
+    text-align: center;
+    border: none;
+}
+
+th, td {
+    padding: 0 1rem 0 1rem;
+    border-spacing: 0;
+    border: none;
+
+}
+
+th {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    background-color: var(--tertiary-color);
+
+}
+
+
+tr:nth-child(even) {
+    background-color: var(--tertiary-color);
+}
+
+.card {
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    box-shadow: 0px 1px 5px #000;
+}
+
+.card-list .card:nth-child(even) {
+    margin: 1.5rem 0;
+}
+
+.section-container {
+    padding-bottom: 2rem;
+}
+
+.input-field {
+    border: 0px;
+    box-shadow: 0px 1px 5px #000;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    margin: 0.5rem 0;
+    appearance: textfield;
+}
+
+.input-label {
+    align-items: flex-start;
+    width: 80%;
+    text-transform: capitalize;
+}
+
+.input-label:nth-child(even) {
+    margin: 0.7rem 0;
+}
+
+.mouseClick {
+    cursor: pointer;
+}
+
+/* ===Dark & Light Mode Classes=== */
+.primary-color {
+    background-color: var(--primary-color);
+}
+
+.secondary-color {
+    background-color: var(--secondary-color);
+}
+
+.tertiary-color {
+    background-color: var(--tertiary-color);
+}
+
+.primary-color .title,
+.secondary-color .title,
+.tertiary-color .title {
+    color: var(--title-color);
+}
+
+.primary-color .subtitle,
+.secondary-color .subtitle,
+.tertiary-color .subtitle {
+    color: var(--title-color);
+}
+
+.primary-color .text,
+.secondary-color .text,
+.tertiary-color .text {
+    color: var(--text-color);
+}
+
+/* ===Header & Footer Generic Style=== */
+#header,
+footer {
+    width: 100%;
+    padding: 2rem 7.5vw;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header h1 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+/* ===Header Nav Style=== */
+#header ul {
+    list-style-type: none;
+}
+
+#header li {
+    display: inline-block;
+
+    letter-spacing: 0.5px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding-right: 1rem;
+}
+
+#header figure i {
+    font-size: 2rem;
+    cursor: pointer;
+
+    transition: all 700ms ease;
+}
+
+#desktop-nav-wrapper {
+    width: auto;
+}
+
+#moon-figure {
+    display: none;
+}
+
+/* ===Header Mobile Menu Style=== */
+#drop-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: translateX(-50vw);
+
+    width: 50vw;
+    height: 100vh;
+
+    justify-self: start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem 2rem;
+
+    z-index: 20;
+
+    transition: all 600ms ease;
+}
+
+#drop-menu ul {
+    align-items: flex-start;
+    padding-top: 1rem;
+}
+
+#drop-menu li {
+    padding: 0.5rem 0;
+}
+
+#drop-menu a {
+    font-weight: 400;
+    transition: font-weight 600ms ease;
+}
+
+#drop-menu a:hover {
+    font-weight: 500;
+}
+
+#drop-menu .fa-xmark {
+    font-size: 2.5rem;
+    padding: 0 0.5rem;
+
+    transform: rotateZ(0deg);
+    transition: all 200ms linear;
+}
+
+#drop-menu .fa-xmark:hover {
+    transform: rotateZ(90deg);
+}
+
+/* ===Body Style=== */
+body.flex-column {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+/* ===Footer Style=== */
+#footer {
+    justify-content: space-between;
+}
+
+#footer h4 {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+#footer div {
+    width: auto;
+}
+
+#footer i {
+    padding: 0 0.8rem;
+    font-size: 1.8rem;
+    transition: all 700ms ease;
+}
+
+@media screen and (min-width: 810px) {
+    :root {
+        font-size: 10px;
+    }
+
+    /* ===Generic Classes=== */
+    .mobile-hide {
+        display: inline-block;
+    }
+
+    .desktop-hide {
+        display: none;
+    }
+
+    .button {
+        font-size: var(--text-font-size);
+    }
+
+    .card {
+        width: 70%;
+    }
+
+    .cards-container .card {
+        width: 30%;
+    }
+
+
+    /* ===Header Style=== */
+    #moon-figure,
+    #sun-figure {
+        padding-left: 1rem;
+    }
+
+    #desktop-nav-wrapper {
+        justify-content: flex-end;
+    }
+
+    /* ===Footer Style=== */
+    #footer {
+        flex-direction: column;
+    }
+
+    #footer div {
+        padding-top: 1rem;
+    }
+}

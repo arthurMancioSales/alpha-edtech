@@ -6,16 +6,6 @@ const title = document.querySelector("#gameTitle")
 
 const sequence = [2, 3, 4, 5, 6, 7, 8, 9, "T", "J", "Q", "K", "A"];
 
-const flush = [];
-const quadra = [0, 2, 2, 0, 0];
-const house = [0, 0, 2, 2, 0];
-const sequencia = [1, 2, 3, 2, 2];
-const trinca = [1, 2, 3, 2, 2];
-const doispar = [1, 2, 3, 2, 2];
-const par = [1, 2, 3, 2, 2];
-const nada = [1, 2, 3, 2, 2];
-
-
 for (let i = 0; i < 4; i++) {
     switch (i) {
         case 0:
@@ -124,7 +114,7 @@ function checkPoints() {
     });
     userSequence.sort((a, b) => a - b);
 
-    if (checkRoyal(userSequence)) {
+    if (checkRoyal(userSequence, userHand)) {
         result.innerText = "Straight Flush";
     } else if (checkRepeatValue(userSequence, 4)) {
         result.innerText = "Quadra";
@@ -145,37 +135,25 @@ function checkPoints() {
     document.querySelector(".button").setAttribute("value", "recomeçar");
 }
 
-function checkRoyal(arr) {
-    if (checkSuit(arr) && checkSequence(arr)) {
+function checkRoyal(sequenceArr, objArr) {
+    if (checkSuit(objArr) && checkSequence(sequenceArr)) {
         return true;
     }
 }
 
-function checkSuit(arr, i = 0) {
-    if (
-        arr.every((value) => {
-            return value.suit == "C";
-        })
-    ) {
+function checkSuit(arr) {
+    if (arr.every((value) => {return value.suit == "C";})) {
+        return true;
+    } else if (arr.every((value) => {return value.suit == "D";})) {
         return true;
     } else if (
-        arr.every((value) => {
-            return value.suit == "D";
-        })
-    ) {
+        arr.every((value) => {return value.suit == "H";})) {
         return true;
     } else if (
-        arr.every((value) => {
-            return value.suit == "H";
-        })
-    ) {
+        arr.every((value) => {return value.suit == "S";})) {
         return true;
-    } else if (
-        arr.every((value) => {
-            return value.suit == "S";
-        })
-    ) {
-        return true;
+    } else {
+        return false
     }
 }
 
@@ -326,13 +304,7 @@ function checkRepeatValue(arr, x, y = 0) {
             }
 
         case 4:
-            if (
-                arr.slice(0, -1).every((value) => {
-                    return value == arr[0];
-                }) ||
-                arr.slice(1).every((value) => {
-                    return value == arr[0];
-                })
+            if (arr.slice(0, -1).every((value) => {return value == arr[0];}) || arr.slice(1).every((value) => {return value == arr[0];})
             ) {
                 return true;
             } else {

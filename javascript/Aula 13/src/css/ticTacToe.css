@@ -1,0 +1,12 @@
+ul {
+    list-style: none;
+}
+
+.elemento {
+    width: 100px;
+    height: 100px;
+    
+    margin: 05px;
+    
+    font-size: 80px;
+}

@@ -8,7 +8,7 @@ export default function Principal() {
     container.className = "flex-row cards-container"
 
     const card1 = CreateDiv("column", "card", true, "secondary-color")
-    card1.appendChild(CreateText("subtitle", "pageTitle", "Bomba 1"))
+    card1.appendChild(CreateText("subtitle", "pageTitle", "Cotação de Moedas"))
     card1.appendChild(CreateButton("acessar", "coinBtn", function() {
         const route = EventoCustomizado("/coins")
         window.dispatchEvent(route)

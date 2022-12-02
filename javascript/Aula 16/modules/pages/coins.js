@@ -75,14 +75,14 @@ function checkCoin() {
         }
 
         fetch(`https://economia.awesomeapi.com.br/json/daily/${coin}-BRL/${dateDifference(startDate, endDate)+1}?start_date=${startDateInput.replaceAll("-","")}&end_date=${endDateInput.replaceAll("-", "")}`)
-        .then(response => {
-            document.querySelector("#content").style.pointerEvents = ""
-            document.querySelector("#root").style.cursor = "default"
-            return response.json()
-        })
-        .then(data => {
-            plotData(data)
-        })
+            .then(response => {
+                document.querySelector("#content").style.pointerEvents = ""
+                document.querySelector("#root").style.cursor = "default"
+                return response.json()
+            })
+            .then(data => {
+                plotData(data)
+            })
 
     } catch (error) {
         document.querySelector("#result").innerText = error

@@ -3,7 +3,7 @@ import Router from "./modules/router.js";
 const root = document.querySelector("#root")
 
 const routes = Router()
-root.appendChild(routes.getPage("/weather"))
+root.appendChild(routes.getPage("/Aula 18"))
 
 window.addEventListener("onstatechange", (e) => {
     

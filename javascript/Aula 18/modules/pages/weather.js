@@ -21,13 +21,10 @@ export default function Weather() {
             for (let i = 0; i < stateInput.children[1].childElementCount; i++) {
                 if (i == 0) {
                     stateInput.children[1].children[i].value = "";
-                    stateInput.children[1].children[i].innerHTML =
-                        "Selecione uma opção";
+                    stateInput.children[1].children[i].innerHTML = "Selecione uma opção";
                 } else {
-                    stateInput.children[1].children[i].value =
-                        result[i - 1].sigla;
-                    stateInput.children[1].children[i].innerHTML =
-                        result[i - 1].nome;
+                    stateInput.children[1].children[i].value = result[i - 1].id;
+                    stateInput.children[1].children[i].innerHTML = result[i - 1].nome;
                 }
             }
         })
@@ -84,7 +81,7 @@ function showCities() {
 
     fetchCities(this.value)
         .then((result) => {
-            for (let i = 0; i < result.length; i++) {
+            for (let i = 0; i < result.length + 1; i++) {
                 const option = document.createElement("option");
 
                 if (i == 0) {
@@ -108,9 +105,7 @@ function showCities() {
 
 function fetchCities(cityId) {
     return new Promise((resolve, reject) => {
-        fetch(
-            `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${cityId}/municipios?orderBy=nome`
-        )
+        fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${cityId}/municipios?orderBy=nome`)
             .then((response) => {
                 if (response.status === 200) {
                     return response.json();
@@ -127,14 +122,12 @@ function fetchWeather(geocode) {
             .then((response) => {
                 if (response.ok) {
                     if (response.status === 200) {
-                        console.log(response);
                         return response.json();
                     }
                 }
                 reject("Erro na requisição dos dados!");
             })
             .then((json) => {
-                console.log(json);
                 const result = filterData(json);
                 resolve(result);
             });
@@ -166,26 +159,12 @@ function plotWeather() {
                 dayDiv.style.marginRight = "15px";
                 dayDiv.style.alignSelf = "stretch";
 
-                dayDiv.appendChild(
-                    CreateText("subtitle", "", day["diaSemana"])
-                );
+                dayDiv.appendChild(CreateText("subtitle", "", day["diaSemana"]));
                 dayDiv.appendChild(CreateImg(day["icone"]));
                 dayDiv.appendChild(CreateText("text", "", daysDataKeys[i]));
                 dayDiv.appendChild(CreateText("text", "", day["resumo"]));
-                dayDiv.appendChild(
-                    CreateText(
-                        "text",
-                        "",
-                        `Temperatura máxima: ${day["tempMax"]}°`
-                    )
-                );
-                dayDiv.appendChild(
-                    CreateText(
-                        "text",
-                        "",
-                        `Temperatura mínima: ${day["tempMin"]}°`
-                    )
-                );
+                dayDiv.appendChild(CreateText("text","",`Temperatura máxima: ${day["tempMax"]}°`));
+                dayDiv.appendChild(CreateText("text", "", `Temperatura mínima: ${day["tempMin"]}°`));
 
                 dayDiv.childNodes.forEach(
                     (element) => (element.style.margin = " 5px 0 5px 0")

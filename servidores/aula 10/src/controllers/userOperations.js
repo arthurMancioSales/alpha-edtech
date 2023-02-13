@@ -72,7 +72,7 @@ export function getSingleUser(req, res, ID) {
 
 export function updateUser(req, res, ID) {
     const { nome, email } = req.body;
-
+    // procurar sobre o fs com promisse
     fs.readFile("./src/db/userList.json", (err, data) => {
         if (err) {
             res.status(500);

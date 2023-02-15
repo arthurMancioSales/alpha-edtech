@@ -1,6 +1,7 @@
 import { createOrder } from "../repositories/order.js";
 import { finishPurchase, connectOrderPurchase } from "../repositories/purchased_products.js";
 import pool from '../repositories/connection.js'
+import { readProduct } from '../repositories/products.js'
 
 async function registerOrder([user]) {
     await pool.connect()
@@ -20,3 +21,6 @@ async function registerOrder([user]) {
         await pool.release()
     }
 }
+
+
+console.table(await readProduct(pool, ['', 'material escolar']))

@@ -3,7 +3,7 @@ import { removeProductFromAllCart } from "./cart.js";
 import { createBrand } from "./brand.js";
 
 // Instancia novo produto
-async function createProduct(
+export async function createProduct(
     pool,
     [name, brand, price, description, quantity, categories]
 ) {
@@ -57,8 +57,9 @@ async function createProduct(
 }
 
 // Filtra produtos com base em marca e categoria
-async function readProduct(pool, [brand, categories]) {
+export async function readProduct(pool, [brand, categories]) {
     const client = await pool.connect();
+    let res
     try {
         const readProduct = `
         SELECT 
@@ -73,18 +74,18 @@ async function readProduct(pool, [brand, categories]) {
         JOIN categories ON categories_product.category_id = categories.id
         WHERE brands.name = $1 AND categories.name = $2
         ORDER BY price ASC`;
-        const res = await client.query(readProduct, [brand, categories]);
-        console.log("Resultado leitura de produtos:\n", res.rows);
-        return res;
+        res = await client.query(readProduct, [brand, categories]);
+        
     } catch (error) {
         console.log(error);
     } finally {
         client.release();
+        return res.rows;
     }
 }
 
 //Atualiza as informações de um produto
-async function updateProduct(
+export async function updateProduct(
     pool,
     [old_name, new_name, brand, price, description, quantity, categories]
 ) {
@@ -118,7 +119,7 @@ async function updateProduct(
 }
 
 //Apaga um produto
-async function deleteProduct(pool, [product_name]) {
+export async function deleteProduct(pool, [product_name]) {
     const client = await pool.connect();
 
     try {

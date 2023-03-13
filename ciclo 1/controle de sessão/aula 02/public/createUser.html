@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./createUser.js" defer></script>
+</head>
+
+<body>
+    <div class="cadastroBg bodyHome">
+        <main class="mainSize flexColumn">
+            <h1 class="titleText">Cadastrar Novo Usuário</h1>
+            <form class="flexColumn" id="form">
+                <input id="userName" class="userInput" type="name" required placeholder="Usuário">
+                <input id="userEmail" class="userInput" type="email" required placeholder="E-mail">
+                <input id="userEmailConfirm" class="userInput" type="email" required placeholder="Confirme seu e-mail">
+                <input id="userPass" class="userInput" type="password" required placeholder="Senha">
+                <input id="userPassConf" class="userInput" type="password" required placeholder="Confirme sua Senha">
+                <input id="userType" class="userInput" type="text" required placeholder="Tipo de usuário">
+                <button id="createUser" class="button" type="submit">Cadastrar</button>
+            </form>
+            <p id="loginResult"></p>
+        </main>
+    </div>
+</body>
+
+</html>

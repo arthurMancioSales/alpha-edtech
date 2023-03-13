@@ -1,0 +1,50 @@
+/* ===Main Content Style=== */
+#forms-container {
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 2rem 0;
+}
+
+#forms-container form {
+    padding: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+#forms-container input[type="number"],
+#operations-selector {
+    border: 0px;
+    box-shadow: 0px 1px 5px #000;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0.5rem 0;
+    appearance: textfield;
+}
+
+#forms-container input[type="number"] + input[type="number"] {
+    background-color: var(--tertiary-color);
+}
+
+#forms-container input[type="submit"] {
+    margin-top: 1.5rem;
+}
+
+/* ===Responsive Design=== */
+@media screen and (min-width: 810px) {
+    #forms-container form {
+        padding: 1.5rem 0;
+        justify-content: space-between;
+    }
+
+    #forms-container input[type="number"] {
+        width: 80%;
+    }
+
+    #forms-container select {
+        width: 80%;
+    }
+
+    #forms-container input[type="submit"] {
+        margin: 1.5rem auto;
+    }
+}

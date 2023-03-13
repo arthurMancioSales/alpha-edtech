@@ -1,0 +1,40 @@
+/* estilo doo link */
+#link-Destaque:hover {
+  color: mediumseagreen;
+}
+
+#link-Destaque:visited {
+  color: crimson;
+}
+
+/* Estilo da receita */
+.receita li > span {
+  font-weight: 800;
+}
+
+.receita li {
+  line-height: 1.5em;
+}
+
+.receita > h3 {
+  font-size: 2em;
+}
+
+.receita > h4 {
+  font-size: 1.5em;
+}
+
+/* Estilo newsletter */
+#newsletter input[type="email"] {
+  color: darkgreen;
+  border-color: crimson;
+}
+
+#newsletter input[type="text"] {
+  color:darkviolet;
+  border-color: crimson;
+}
+
+#newsletter input:focus {
+    border-color: darkblue;
+}

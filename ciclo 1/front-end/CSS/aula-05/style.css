@@ -1,0 +1,109 @@
+/* reset css */
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #c5c3c0;
+}
+
+/* definição do cabeçalho */
+header {
+    background-color: #171a21;
+    display: block;
+    text-align: center;
+    position: sticky;
+    top: 0%;
+}
+
+figure,
+svg {
+    width: 8vw;
+    height: 8vw;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: inline-block;
+}
+
+h1 {
+    display: inline-block;
+    color: #c5c3c0;
+    font-size: 2rem;
+    width: 10vw;
+    position: relative;
+    bottom: 35px;
+}
+
+nav li,
+nav a {
+    color: #c5c3c0;
+    text-decoration: none;
+    display: inline-block;
+}
+
+nav ul {
+    text-align: center;
+}
+
+nav {
+    display: inline-block;
+    width: 40vw;
+    margin: auto;
+    position: relative;
+    bottom: 40px;
+}
+
+nav a {
+    margin: 0 6px;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* definição conteúdo */
+main {
+    color: #c5c3c0;
+    background-color: #0e1014;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.games-section li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.games-section ul {
+    text-align: center;
+}
+
+.games-section img {
+    width: 150px;
+}
+
+.games-section h2 {
+    margin: 0 0 1.5rem 8vw;
+}
+
+.games-section {
+    margin: 30px 0 30px 0;
+}
+
+.games-section img:hover {
+    scale: 1.5;
+    box-shadow: 0px 0px 8px #c5c3c0;
+}
+
+/* definição footer */
+footer {
+    background-color: #171a21;
+    color: #c5c3c0;
+    text-align: center;
+}
+
+footer h2 {
+    margin: auto;
+    line-height: 5rem;
+}

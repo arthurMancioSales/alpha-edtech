@@ -53,21 +53,6 @@ class RegexValidator extends StringValidator {
     }
 }
 
-class EmailInput extends HTMLElement {
-    constructor() {
-        super();
-
-        const shadow = this.attachShadow({ mode: "open" });
-
-        const input = document.createElement("input");
-        input.type = "text";
-        input.onchange = () => new EmailValidator(input.value);
-
-        shadow.append(input);
-    }
-}
-
-customElements.define("email-input", EmailInput)
 
 class EmailValidator extends RegexValidator {
     constructor(data: any) {
@@ -98,3 +83,107 @@ class NameValidator extends RegexValidator {
         return new RegExp(/^([a-z]{1,})([ ]{1}[a-z]{1,} ){0,}$/gim)
     }
 }
+
+
+export class EmailInput extends HTMLElement {
+    private input
+
+    constructor() {
+        super();
+
+        const shadow = this.attachShadow({ mode: "open" });
+
+        const label = document.createElement("label")
+        label.innerText = "Email"
+
+        const input = document.createElement("input");
+        
+        this.input = input
+
+        input.type = "email";
+        input.onchange = () => { 
+            try {
+                new EmailValidator(input.value);
+            } catch (error) {
+                input.value = ""      
+            }
+        }
+        
+        label.append(input)
+        shadow.append(label);
+    }
+
+    get value() {
+        return this.input.value
+    }
+}
+
+customElements.define("email-input", EmailInput)
+
+export class NameInput extends HTMLElement {
+    private input
+    constructor() {
+        super();
+
+        const shadow = this.attachShadow({ mode: "open" });
+
+        const label = document.createElement("label")
+        label.innerText = "Nome"
+        
+        const input = document.createElement("input");
+
+        this.input = input
+
+        input.type = "text";
+        input.onchange = () => { 
+            try {
+                new NameValidator(input.value);
+            } catch (error) {
+                input.value = ""                
+            }
+        }
+        
+        label.append(input)
+        shadow.append(label);
+    }
+
+    get value() {
+        return this.input.value
+    }
+}
+
+customElements.define("name-input", NameInput)
+
+export class PasswordInput extends HTMLElement {
+    private input
+    constructor() {
+        super();
+
+        const shadow = this.attachShadow({ mode: "open" });
+
+        const label = document.createElement("label")
+        label.innerText = "Senha"
+
+        const input = document.createElement("input");
+        input.type = "password";
+        
+        this.input = input
+
+        input.onchange = () => { 
+            try {
+                new PasswordValidator(input.value);
+            } catch (error) {
+                input.value = ""                
+            }
+        }
+        
+        label.append(input)
+        shadow.append(label);
+    }
+
+    get value() {
+        return this.input.value
+    }
+}
+
+customElements.define("password-input", PasswordInput)

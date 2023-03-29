@@ -5,9 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TS 04</title>
-    <script src="./build/src/index.js"></script>
+    <script src="./build/src/index.js" type="module"></script>
+    <script src="./build/src/service.js" type="module" defer></script>
 </head>
 <body>
-    <email-input></email-input>
+    <name-input id="nameInput"></name-input>
+    <email-input id="emailInput"></email-input>
+    <password-input id="passwordInput"></password-input>
+    <button id="signUpButton">cadastrar</button>
+    <button id="signInButton">logar</button>
+    <button id="updateButton">atualizar</button>
 </body>
 </html>

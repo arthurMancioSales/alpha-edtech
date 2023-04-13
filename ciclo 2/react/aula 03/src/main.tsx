@@ -9,30 +9,60 @@ function App() {
         { id: 3333, name: "teste 03", price: 30 },
         { id: 4444, name: "teste 04", price: 40 },
     ];
-    const balance: number = 100;
+    const balance: number = 50;
 
     // seu código daqui pra baixo
 
-    const listItems = cart.map((product) => <li key={product.id}>{product.name}</li>);
-    let totalPrice: number = 0
-    
-    cart.forEach(product => totalPrice += product.price)
+    function deleteProduct(productName: string) {
+        document.querySelector(`#${productName}`)?.remove();
+        alert(`o produto com id ${productName} foi removido`);
+    }
+
+    interface IproductDelete {
+        productId: string;
+    }
+
+    function DeleteProductButton(props: IproductDelete) {
+        return (
+            <button onClick={() => deleteProduct(props.productId)}>
+                Remover
+            </button>
+        );
+    }
+
+    const listItems = cart.map((product) => {
+        return (
+            <li id={`${product.name[0]}${product.id}`} key={product.id}>
+
+                {product.name}{" "}
+
+                <DeleteProductButton
+                    productId={`${product.name[0]}${product.id}`}
+                />
+            </li>
+        );
+    });
+    let totalPrice: number = 0;
+
+    cart.forEach((product) => (totalPrice += product.price));
 
     return (
         <>
             <h1>Meu carrinho</h1>
 
-            {totalPrice > balance ? <p>Saldo insuficiente</p> : ''}
-            
+            {totalPrice > balance ? <p>Saldo insuficiente</p> : ""}
+
             <ul>{listItems}</ul>
         </>
     );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+const root = ReactDOM.createRoot(
+    document.getElementById("root") as HTMLElement
+);
 
 root.render(
     <React.StrictMode>
         <App />
     </React.StrictMode>
-)
+);

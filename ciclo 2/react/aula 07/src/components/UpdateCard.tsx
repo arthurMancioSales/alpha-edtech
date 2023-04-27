@@ -1,49 +1,65 @@
-import { useContext } from "react";
-import LoginForm from "./form"
+import { useContext, useState } from "react";
+import LoginForm from "./form";
 import UserContext from "../contexts/userContext";
 import iUser from "../interfaces/userInterface";
+import LoginModal from "./modal";
 
 const UpdateCard = () => {
-    const {user, setUser} = useContext(UserContext)
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [sucess, setSucess] = useState(false);
+    const { user, setUser } = useContext(UserContext);
 
-    async function updateUser(email: string, password:string) {
+    async function updateUser(email: string, password: string) {
         try {
             const request = await fetch("http://localhost:8000/users/update", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({id: user?.id, email, password }),
+                body: JSON.stringify({ id: user?.id, email, password }),
             });
-    
-            const response = await request.json()
-            const data = response.data
-    
+
+            const response = await request.json();
+            const data = response.data;
+
             const userData: iUser = {
                 id: data.id,
                 email: data.email,
-                username: data.username
-            }
-    
+                username: data.username,
+            };
+
             if (request.status !== 200) {
-                alert('deu ruim')
+                setModalIsOpen(true);
             }
-            console.log(userData)
-            setUser(userData)
+            setUser(userData);
         } catch (error) {
-            console.log(error)
-            alert('deu ruim')
+            console.log(error);
+            setModalIsOpen(true);
         }
     }
-    
+    function closeModal() {
+        setModalIsOpen(false);
+    }
 
     return (
-        <div style={{border: "1px solid black", padding: "10px", margin: "10px"}}>
-            <h3>Atualizar</h3>
-            <LoginForm onSubmit={updateUser}/>
-        </div>
-    )
-}
+        <>
+            {modalIsOpen ? (
+                <LoginModal onClose={() => closeModal()} sucess={sucess} />
+            ) : (
+                ""
+            )}
+            <div
+                style={{
+                    border: "1px solid black",
+                    padding: "10px",
+                    margin: "10px",
+                }}
+            >
+                <h3>Atualizar</h3>
+                <LoginForm onSubmit={updateUser} />
+            </div>
+        </>
+    );
+};
 
-export default UpdateCard
-
+export default UpdateCard;

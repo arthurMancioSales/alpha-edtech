@@ -1,0 +1,2 @@
+{"/home/arthur/desktop/alpha/hard/aulas/ciclo 2/testes/aula 01/index.ts": {"path":"/home/arthur/desktop/alpha/hard/aulas/ciclo 2/testes/aula 01/index.ts","statementMap":{"0":{"start":{"line":2,"column":4},"end":{"line":2,"column":16}}},"fnMap":{"0":{"name":"sum","decl":{"start":{"line":1,"column":24},"end":{"line":1,"column":27}},"loc":{"start":{"line":1,"column":50},"end":{"line":3,"column":1}},"line":1}},"branchMap":{},"s":{"0":3},"f":{"0":3},"b":{},"_coverageSchema":"1a1c01bbd47fc00a2c39e90264f33305004495a9","hash":"89b9e9d3c87ca2ff7d6b59f5c06a4796caf07638"}
+}

@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  db:
+    image: postgres
+    container_name: typescript_db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: abacate
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  backend-web:
+    build: ../aula 05/
+    container_name: typescript_backend
+    environment:
+      PORT: 8000
+      DBUSER: postgres
+      DBHOST: db
+      DBNAME: db_typescript
+      DBPASSWORD: abacate
+      DBPORT: 5432
+    ports:
+      - 8000:8000
+volumes:
+  postgres_data:
